@@ -26,6 +26,8 @@ export class ModalContentComponent implements OnInit {
   title: string;
   closeBtnName: string;
   list: any[] = [];
+  confirmBtnName: any;
+  dataId: any;
   public onClose: Subject<boolean>;
 
   constructor(public bsModalRef: BsModalRef) { }

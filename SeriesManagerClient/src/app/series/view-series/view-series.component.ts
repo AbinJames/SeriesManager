@@ -11,7 +11,7 @@ import { formatDate } from '@angular/common';
 })
 export class ViewSeriesComponent implements OnInit {
 
-  constructor(private seriesService: SeriesService, private appComponent: AppComponent) { }
+  constructor(private seriesService: SeriesService, public appComponent: AppComponent) { }
 
   seriesList: any[] = [];
   seriesDetails: any[] = [];
@@ -37,6 +37,12 @@ export class ViewSeriesComponent implements OnInit {
   yesterday = new Date();
   noImage: any = "assets/no_image.png";
   shows: any[];
+  seriesName: any;
+  previousSeriesStartDate: any;
+  previousSeriesEndDate: any;
+  nextSeriesStartDate: any;
+  nextSeriesEndDate: any;
+  isDownloadableToday: any;
 
   ngOnInit() {
     this.yesterday.setDate(this.today.getDate() - 1);
@@ -183,7 +189,7 @@ export class ViewSeriesComponent implements OnInit {
     });
   }
 
-  showNewShows(){
+  showNewShows() {
     this.appComponent.openModal(2, 'New Series', this.shows, 'OK', 'Cancel', null).subscribe(response => {
       response.content.onClose.subscribe(result => {
         if (result != null) {

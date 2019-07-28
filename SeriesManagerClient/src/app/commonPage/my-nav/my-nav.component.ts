@@ -17,4 +17,6 @@ export class MyNavComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
+  over: any;
+  dialog: any;
 }
